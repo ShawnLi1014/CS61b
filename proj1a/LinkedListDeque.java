@@ -1,11 +1,11 @@
-public class LinkedListDeque <T>{
+public class LinkedListDeque<T>{
     /* Linked Node class */
     public class linkedNode {
         public linkedNode prev;
         public T item;
         public linkedNode next;
 
-        public linkedNode(linkedNode x, T i, linkedNode y){
+        private linkedNode(linkedNode x, T i, linkedNode y){
             prev = x;
             item = i;
             next = y;

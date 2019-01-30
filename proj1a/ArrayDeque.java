@@ -1,6 +1,6 @@
 public class ArrayDeque<T> {
+
     private int size;
-    /* nextFirst and nextLast always point to an empty items position */
     private int nextFirst;
     private int nextLast;
     private T [] items;
@@ -170,6 +170,10 @@ public class ArrayDeque<T> {
         } else{
             return items[first + index];
         }
+    }
+
+    public int size(){
+        return size;
     }
 
 

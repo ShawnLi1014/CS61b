@@ -18,31 +18,31 @@ public class ArrayDeque<T> {
         if(size == items.length){
             T [] a = (T []) new Object[size * 2];
             /* Copy all the elements to a in order */
-            int first = nextFirst;
+            int first = rmNextFirst(nextFirst);
             for(int i = 0; i < size; i++){
                 a[i] = items[first];
                 /* Update first */
                 first = rmNextFirst(first);
             }
             /* Update nextFirst and nextLast */
-            nextFirst = 0;
-            nextLast = size - 1;
+            nextLast = size;
             items = a;
+            nextFirst = items.length - 1;
         }
 
         if(R < 0.25 && items.length > 16){
             T [] a = (T []) new Object[items.length / 2];
             /* Copy all the elements to a in order */
-            int first = nextFirst;
+            int first = rmNextFirst(nextFirst);
             for(int i = 0; i < size; i++){
                 a[i] = items[first];
                 /* Update first */
                 first = rmNextFirst(first);
             }
-            /* Update nextFirst and nextLast */
-            nextFirst = 0;
-            nextLast = size - 1;
+            /* Update nextFirst and nextLast, make them point to an empty box */
+            nextLast = size;
             items = a;
+            nextFirst = items.length - 1;
         }
 
     }
@@ -99,17 +99,17 @@ public class ArrayDeque<T> {
 
     public void addFirst(T item){
         resize();
-        nextFirst = addNextFirst(nextFirst);
         items[nextFirst] = item;
         size++;
+        nextFirst = addNextFirst(nextFirst);
 
     }
 
     public void addLast(T item) {
         resize();
-        nextLast = addNextLast(nextLast);
         items[nextLast] = item;
         size++;
+        nextLast = addNextLast(nextLast);
     }
 
 
@@ -184,10 +184,21 @@ public class ArrayDeque<T> {
 //        for(int i = 0; i < 8; i ++){
 //            a.addLast(i);
 //        }
-////        a.removeLast();
-////        a.removeFirst();
-////        a.removeFirst();
-////        a.addFirst(7);
+//        a.addFirst(0);
+//        a.addFirst(0);
+//        a.addFirst(0);
+//        a.addFirst(0);
+//        a.addFirst(0);
+//        a.addFirst(0);
+//        a.addFirst(0);
+//        a.addFirst(0);
+//        a.addFirst(0);
+//        a.addFirst(0);
+//
+//        a.removeLast();
+//        a.removeFirst();
+//        a.removeFirst();
+//        a.addFirst(7);
 //        a.addFirst(3);
 //        int b = a.get(0);
 //        a.removeLast();

@@ -91,7 +91,7 @@ public class LinkedListDeque<T>{
         toRemove.prev = null;
         toRemove.next = null;
         size -= 1;
-        return null;
+        return toRemove.item;
     }
 
     public T get(int index){
@@ -124,7 +124,8 @@ public class LinkedListDeque<T>{
 //        p.addFirst(5);
 //        p.addFirst(10);
 //        p.addFirst(15);
-//        p.addFirst(20);
+//        p.addLast(20);
+//        p.removeLast();
 //        System.out.println(p.getRecursive(2));
 //    }
 }

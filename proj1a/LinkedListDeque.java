@@ -119,12 +119,12 @@ public class LinkedListDeque <T>{
         return getRec(sentinel.next, index);
     }
 
-    public static void main(String [] args){
-        LinkedListDeque<Integer> p = new LinkedListDeque();
-        p.addFirst(5);
-        p.addFirst(10);
-        p.addFirst(15);
-        p.addFirst(20);
-        System.out.println(p.getRecursive(2));
-    }
+//    public static void main(String [] args){
+//        LinkedListDeque<Integer> p = new LinkedListDeque();
+//        p.addFirst(5);
+//        p.addFirst(10);
+//        p.addFirst(15);
+//        p.addFirst(20);
+//        System.out.println(p.getRecursive(2));
+//    }
 }

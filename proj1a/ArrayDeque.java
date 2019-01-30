@@ -173,21 +173,21 @@ public class ArrayDeque<T> {
     }
 
 
-    public static void main(String [] args){
-        ArrayDeque<Integer> a = new ArrayDeque();
-        a.addFirst(1);
-        a.addFirst(2);
-        a.addFirst(3);
-        a.addLast(100);
-        a.addFirst(4);
-        a.addFirst(5);
-        a.removeFirst();
-        a.removeFirst();
+//    public static void main(String [] args){
+//        ArrayDeque<Integer> a = new ArrayDeque();
+//        a.addFirst(1);
+//        a.addFirst(2);
+//        a.addFirst(3);
+//        a.addLast(100);
+//        a.addFirst(4);
+//        a.addFirst(5);
 //        a.removeFirst();
 //        a.removeFirst();
-//        a.removeFirst();
-        a.removeLast();
-        int b = a.get(1);
-        a.printDeque();
-    }
+////        a.removeFirst();
+////        a.removeFirst();
+////        a.removeFirst();
+//        a.removeLast();
+//        int b = a.get(1);
+//        a.printDeque();
+//    }
 }

@@ -98,16 +98,18 @@ public class ArrayDeque<T> {
 
 
     public void addFirst(T item){
-        items[nextFirst] = item;
-        sizePlusOne();
+        resize();
         nextFirst = addNextFirst(nextFirst);
+        items[nextFirst] = item;
+        size++;
+
     }
 
     public void addLast(T item) {
-        items[nextLast] = item;
-        sizePlusOne();
+        resize();
         nextLast = addNextLast(nextLast);
-
+        items[nextLast] = item;
+        size++;
     }
 
 
@@ -159,11 +161,10 @@ public class ArrayDeque<T> {
         if(index >= size){
             return null;
         }
-        int first = nextFirst;
-        if(first + index > items.length - 1){
-            return items[first + index - items.length];
+        if(nextFirst + index >= items.length - 1){
+            return items[nextFirst + index - items.length + 1];
         } else{
-            return items[first + index];
+            return items[nextFirst + index + 1];
         }
     }
 
@@ -174,20 +175,21 @@ public class ArrayDeque<T> {
 
 //    public static void main(String [] args){
 //        ArrayDeque<Integer> a = new ArrayDeque();
-//        for(int i = 0; i < 2; i ++){
-//            a.addFirst(10000-i);
-//            a.addLast(i+10000);
+//        for(int i = 0; i < 8; i ++){
+//            a.addLast(i);
 //        }
-//        for(int j = 0; j < 5; j ++){
-//            a.removeLast();
+//        for(int j = 0; j < 8; j ++){
 //            a.removeFirst();
 //        }
-//        a.removeLast();
-//        a.removeFirst();
-//        a.removeFirst();
-//        a.addFirst(7);
-//
-//        a.get(1);
+//        for(int i = 0; i < 8; i ++){
+//            a.addLast(i);
+//        }
+////        a.removeLast();
+////        a.removeFirst();
+////        a.removeFirst();
+////        a.addFirst(7);
+//        a.addFirst(3);
+//        int b = a.get(0);
 //        a.removeLast();
 //        a.printDeque();
 //    }

@@ -47,17 +47,6 @@ public class ArrayDeque<T> {
 
     }
 
-    /*if size+1 == items.length, resize items to free space for nextFirst and nextLast */
-    private void sizePlusOne(){
-        size += 1;
-        resize();
-    }
-
-    private void sizeMinusOne(){
-        size -= 1;
-        resize();
-    }
-
     /* Update the nextFirst and nextLast to make sure they point to an empty box before assign item to the array */
     private int addNextFirst(int nextFirst){
         if(nextFirst == 0){
@@ -140,7 +129,8 @@ public class ArrayDeque<T> {
         T toRemove = items[nextFirst];
         items[nextFirst] = null;
         /* Update nextFirst */
-        sizeMinusOne();
+        size -= 1;
+        resize();
         return toRemove;
     }
 
@@ -152,9 +142,9 @@ public class ArrayDeque<T> {
         T toRemove = items[nextLast];
         items[nextLast] = null;
         /* Update nextLast */
-        sizeMinusOne();
+        size -= 1;
+        resize();
         return toRemove;
-
     }
 
     public T get(int index) {
@@ -171,37 +161,5 @@ public class ArrayDeque<T> {
     public int size(){
         return size;
     }
-
-
-//    public static void main(String [] args){
-//        ArrayDeque<Integer> a = new ArrayDeque();
-//        for(int i = 0; i < 8; i ++){
-//            a.addLast(i);
-//        }
-//        for(int j = 0; j < 8; j ++){
-//            a.removeFirst();
-//        }
-//        for(int i = 0; i < 8; i ++){
-//            a.addLast(i);
-//        }
-//        a.addFirst(0);
-//        a.addFirst(0);
-//        a.addFirst(0);
-//        a.addFirst(0);
-//        a.addFirst(0);
-//        a.addFirst(0);
-//        a.addFirst(0);
-//        a.addFirst(0);
-//        a.addFirst(0);
-//        a.addFirst(0);
-//
-//        a.removeLast();
-//        a.removeFirst();
-//        a.removeFirst();
-//        a.addFirst(7);
-//        a.addFirst(3);
-//        int b = a.get(0);
-//        a.removeLast();
-//        a.printDeque();
-//    }
 }
+

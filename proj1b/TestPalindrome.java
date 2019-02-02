@@ -17,7 +17,7 @@ public class TestPalindrome {
     }
 
     @Test
-    public void testIsPalindrome(){
+    public void testIsPalindrome() {
         String test1 = "";
         String test2 = "a";
         String test3 = "noooon";

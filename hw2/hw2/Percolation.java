@@ -8,8 +8,8 @@ public class Percolation {
     private WeightedQuickUnionUF DJSforP;
     private WeightedQuickUnionUF DJSforF;
     private int size;  //size of the grid
-    private int topID = size * size + 1;
-    private int bottomID = size * size + 2;
+    private int topID;
+    private int bottomID;
     private int openedSites = 0;
     private int[] opened;  //record the open status, 0 is unopened, 1 is opened
     /** Create N-by-N grid, with all sites initially blocked */
@@ -18,6 +18,8 @@ public class Percolation {
             throw new IllegalArgumentException("N should be a positive integer");
         }
         size = N;
+        topID = size * size;
+        bottomID = size * size + 1;
         DJSforP = new WeightedQuickUnionUF(N * N + 2);
         DJSforF = new WeightedQuickUnionUF(N * N + 1);
         opened = new int[N * N + 2];
@@ -119,6 +121,7 @@ public class Percolation {
     }
 
     public static void main(String[] args) {
-
+        Percolation p1 = new Percolation(5);
+        System.out.println(p1.isFull(0, 1));
     }
 }

@@ -12,6 +12,9 @@ public class PercolationStats {
             throw new IllegalArgumentException("T & N Should be positive integers");
         }
         Percolation p[] = new Percolation[T];
+        for(int i = 0; i < T; i++) {
+            p[i] = new Percolation(N);
+        }
         times = T;
         numberOpened = new int[T];
 
@@ -20,6 +23,10 @@ public class PercolationStats {
             while(!p[i].percolates()){
                 int randomRow = StdRandom.uniform(N);
                 int randomCol = StdRandom.uniform(N);
+                while(p[i].isOpen(randomRow, randomCol)) {
+                    randomRow = StdRandom.uniform(N);
+                    randomCol = StdRandom.uniform(N);
+                }
                 p[i].open(randomRow, randomCol);
                 j++;
             }
@@ -56,9 +63,13 @@ public class PercolationStats {
     public double confidenceHigh(){
         return this.mean() + 1.96 * this.stddev()/Math.sqrt(times);
     }
-//
-//
-//    public static void main(String[] args) {
-//        System.out.println(StdRandom.uniform(10));
-//    }
+
+
+    public static void main(String[] args) {
+        PercolationFactory pf = new PercolationFactory();
+        PercolationStats test = new PercolationStats(20, 1000, pf);
+
+        System.out.println(test.mean());
+        System.out.println(test.stddev());
+    }
 }

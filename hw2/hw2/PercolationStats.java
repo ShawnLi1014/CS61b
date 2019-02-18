@@ -11,16 +11,16 @@ public class PercolationStats {
         if(T <= 0 || N <= 0) {
             throw new IllegalArgumentException("T & N Should be positive integers");
         }
-        Percolation p = pf.make(N);
+        Percolation p[] = new Percolation[T];
         times = T;
         numberOpened = new int[T];
 
         for(int i = 0; i < T; i++) {
             int j = 0;
-            while(!p.percolates()){
+            while(!p[i].percolates()){
                 int randomRow = StdRandom.uniform(N);
                 int randomCol = StdRandom.uniform(N);
-                p.open(randomRow, randomCol);
+                p[i].open(randomRow, randomCol);
                 j++;
             }
             numberOpened[i] = j;
